@@ -20,8 +20,8 @@
 				<c:forEach items="${empresas}" var="empresa">
 					<li>
 						${empresa.nome}
-						<a href="/venus/editarEmpresa?id=${empresa.id}">[Editar]</a>
-						<a href="/venus/removerEmpresa?id=${empresa.id}">[Remover]</a>
+						<a href="/venus/entrada?acao=MostrarEmpresa&id=${empresa.id}">[Editar]</a>
+						<a href="/venus/entrada?acao=RemoverEmpresa&id=${empresa.id}">[Remover]</a>
 					</li>
 				</c:forEach>
 			</ul>

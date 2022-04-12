@@ -1,23 +1,18 @@
-package venus.servlet;
+package venus.acoes;
 
 import java.io.IOException;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import venus.modelo.Empresa;
 import venus.modelo.RepositorioDeEmpresas;
 
-@WebServlet(urlPatterns = "/processaEdicao")
-public class ProcessaEdicaoServlet extends HttpServlet {
+public class AlterarEmpresa implements Acao {
 
-	private static final long serialVersionUID = 1L;
-	
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	public void executar(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String id = req.getParameter("id");
 		String nome = req.getParameter("nome");
 		
@@ -26,6 +21,7 @@ public class ProcessaEdicaoServlet extends HttpServlet {
 		Empresa empresa = repositorio.getEmpresa(id);
 		empresa.setNome(nome);
 		
-		resp.sendRedirect("listarEmpresas");
+		resp.sendRedirect("entrada?acao=TelaMostrarLidaDeEmpresas");
 	}
+
 }

@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<c:url value="/processaEdicao" var="urlEditarEmpresa" />
+<c:url value="/entrada" var="urlEntradaServlet" />
 
 <!DOCTYPE html>
 <html>
@@ -13,8 +13,9 @@
 <body>
 	<h1>Editar empresa</h1>
 	
-	<form action="${urlEditarEmpresa}" method="post">
+	<form action="${urlEntradaServlet}" method="post">
 		<input type="hidden" name="id" value="${empresa.id}" />
+		<input type="hidden" name="acao" value="AlterarEmpresa" />
 		
 		<p>Nome: <input type="text" name="nome" value="${empresa.nome}" /></p>
 		<p><input type="submit" /></p>
