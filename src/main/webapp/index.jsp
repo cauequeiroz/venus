@@ -9,8 +9,7 @@
 </head>
 <body>
 	<h1>Bem vindo ao Venus</h1>
-	<p>v1.0.0</p>
 	
-	<%@ include file="include/footer.html" %>
+	<%@ include file="WEB-INF/view/include/footer.html" %>
 </body>
 </html>

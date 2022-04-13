@@ -1,4 +1,4 @@
-package venus.acoes;
+package venus.controlador;
 
 import java.io.IOException;
 import java.util.List;
@@ -13,11 +13,11 @@ import venus.modelo.RepositorioDeEmpresas;
 public class MostrarListaDeEmpresas implements Acao {
 
 	@Override
-	public void executar(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	public String executar(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		List<Empresa> empresas = RepositorioDeEmpresas.getEmpresas();
 		
 		req.setAttribute("empresas", empresas);		
-		req.getRequestDispatcher("/page/listarEmpresas.jsp").forward(req, resp);
+		return "forward:/page/listarEmpresas.jsp";
 	}
 
 }

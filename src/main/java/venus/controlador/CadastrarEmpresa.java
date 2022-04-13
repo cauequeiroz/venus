@@ -1,4 +1,4 @@
-package venus.acoes;
+package venus.controlador;
 
 import java.io.IOException;
 
@@ -12,13 +12,13 @@ import venus.modelo.RepositorioDeEmpresas;
 public class CadastrarEmpresa implements Acao {
 
 	@Override
-	public void executar(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	public String executar(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String nomeDaEmpresa = req.getParameter("nome");
 		
 		RepositorioDeEmpresas repositorio = new RepositorioDeEmpresas();
 		repositorio.adicionar(new Empresa(nomeDaEmpresa));
 		
-		resp.sendRedirect("entrada?acao=TelaMostrarLidaDeEmpresas");
+		return "redirect:entrada?acao=MostrarListaDeEmpresas";
 	}
 
 }

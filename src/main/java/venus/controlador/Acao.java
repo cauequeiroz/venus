@@ -1,4 +1,4 @@
-package venus.acoes;
+package venus.controlador;
 
 import java.io.IOException;
 
@@ -7,5 +7,5 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public interface Acao {
-	public void executar(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException;
+	public String executar(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException;
 }
