@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import venus.modelo.Empresa;
-import venus.modelo.RepositorioDeEmpresas;
+import venus.modelo.Repositorio;
 
 public class AlterarEmpresa implements Acao {
 
@@ -16,12 +16,12 @@ public class AlterarEmpresa implements Acao {
 		String id = req.getParameter("id");
 		String nome = req.getParameter("nome");
 		
-		RepositorioDeEmpresas repositorio = new RepositorioDeEmpresas();
+		Repositorio repositorio = new Repositorio();
 		
 		Empresa empresa = repositorio.getEmpresa(id);
 		empresa.setNome(nome);
 		
-		return "redirect:entrada?acao=MostrarListaDeEmpresas";
+		return "redirect:MostrarListaDeEmpresas";
 	}
 
 }

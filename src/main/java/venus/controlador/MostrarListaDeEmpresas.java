@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import venus.modelo.Empresa;
-import venus.modelo.RepositorioDeEmpresas;
+import venus.modelo.Repositorio;
 
 public class MostrarListaDeEmpresas implements Acao {
 
 	@Override
 	public String executar(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		List<Empresa> empresas = RepositorioDeEmpresas.getEmpresas();
+		List<Empresa> empresas = Repositorio.getEmpresas();
 		
 		req.setAttribute("empresas", empresas);		
-		return "forward:/page/listarEmpresas.jsp";
+		return "forward:listarEmpresas.jsp";
 	}
 
 }

@@ -8,15 +8,21 @@ import javax.servlet.http.HttpServletResponse;
 
 import venus.modelo.Repositorio;
 
-public class RemoverEmpresa implements Acao {
+public class Login implements Acao {
 
 	@Override
 	public String executar(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String id = req.getParameter("id");
 		
-		Repositorio repositorio = new Repositorio();
-		repositorio.removerEmpresa(id);
+		String login = req.getParameter("login");
+		String password = req.getParameter("password");
 		
-		return "redirect:MostrarListaDeEmpresas";		
+		boolean usuarioEstaAutenticado = Repositorio.verificarAcesso(login, password);
+		
+		if (usuarioEstaAutenticado) {
+			return "redirect:MostrarListaDeEmpresas";
+		} else {
+			return "redirect:MostrarLogin";			
+		}
 	}
+
 }

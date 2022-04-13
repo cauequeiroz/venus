@@ -11,7 +11,7 @@ public class MostrarCadastrarEmpresa implements Acao {
 	@Override
 	public String executar(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		return "forward:/page/cadastrarEmpresa.jsp";
+		return "forward:cadastrarEmpresa.jsp";
 	}
 
 }

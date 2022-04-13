@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import venus.modelo.Empresa;
-import venus.modelo.RepositorioDeEmpresas;
+import venus.modelo.Repositorio;
 
 public class CadastrarEmpresa implements Acao {
 
@@ -15,10 +15,10 @@ public class CadastrarEmpresa implements Acao {
 	public String executar(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String nomeDaEmpresa = req.getParameter("nome");
 		
-		RepositorioDeEmpresas repositorio = new RepositorioDeEmpresas();
-		repositorio.adicionar(new Empresa(nomeDaEmpresa));
+		Repositorio repositorio = new Repositorio();
+		repositorio.adicionarEmpresa(new Empresa(nomeDaEmpresa));
 		
-		return "redirect:entrada?acao=MostrarListaDeEmpresas";
+		return "redirect:MostrarListaDeEmpresas";
 	}
 
 }

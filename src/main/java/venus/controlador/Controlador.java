@@ -33,9 +33,9 @@ public class Controlador extends HttpServlet {
 		String url = proximoPasso.split(":")[1];
 		
 		if (comando.equals("forward")) {
-			req.getRequestDispatcher("WEB-INF/view" + url).forward(req, resp);			
+			req.getRequestDispatcher("WEB-INF/view/page/" + url).forward(req, resp);			
 		} else {
-			resp.sendRedirect(url);			
+			resp.sendRedirect("entrada?acao=" + url);			
 		}
 	}
 }
