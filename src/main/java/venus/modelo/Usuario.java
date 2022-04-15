@@ -12,4 +12,8 @@ public class Usuario {
 	public boolean verificarAcesso(String login, String password) {
 		return this.login.equals(login) && this.password.equals(password);
 	}	
+	
+	public String getLogin() {
+		return login;
+	}
 }

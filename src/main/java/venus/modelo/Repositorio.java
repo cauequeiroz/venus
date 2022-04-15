@@ -43,13 +43,13 @@ public class Repositorio {
 		return empresas;
 	}
 	
-	public static boolean verificarAcesso(String login, String senha) {
+	public static Usuario verificarAcesso(String login, String senha) {
 		for (Usuario usuario : usuarios) {
 			if (usuario.verificarAcesso(login, senha)) {
-				return true;
+				return usuario;
 			}
 		}
 		
-		return false;
+		return null;
 	}
 }

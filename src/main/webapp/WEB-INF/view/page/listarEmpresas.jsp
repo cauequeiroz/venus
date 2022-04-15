@@ -8,6 +8,8 @@
 <title>Venus</title>
 </head>
 <body>
+	<%@ include file="../include/header.jsp" %>
+
 	<h1>Empresas</h1>
 	
 	<c:choose>

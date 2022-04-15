@@ -18,11 +18,21 @@ public class Controlador extends HttpServlet {
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		String nomeDaAcao = req.getParameter("acao");
+		
+		boolean paginaInternaDoSistema = !(nomeDaAcao.equals("Login") || nomeDaAcao.equals("MostrarLogin"));
+		boolean usuarioNaoAutenticado = req.getSession().getAttribute("usuario") == null;
+		
+		if (paginaInternaDoSistema && usuarioNaoAutenticado) {
+			resp.sendRedirect("entrada?acao=MostrarLogin");
+			return;				
+		}
+		
+		
 		String proximoPasso = null;
 			
 		try {
 			
-			Acao acao = (Acao) Class.forName("venus.controlador." + nomeDaAcao).newInstance();
+			Acao acao = (Acao) Class.forName("venus.controlador.acoes." + nomeDaAcao).newInstance();
 			proximoPasso = acao.executar(req, resp);
 			
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
